@@ -1,11 +1,10 @@
 ## Experiment 5 - Create IPAddress Kind enum to represent IPv4, IPv6 addresses and create IP Address structure with IP Address Kind as a member and use this structure in the application.
 
-<H3>ENTER YOUR NAME:</H3>  
-<H3>ENTER YOUR REGISTER NO:</H3>  
-<H3>EX.NO.5</H3>  
-<H3>DATE:</H3>  
+<H3>NAME: Santhosh G</H3>  
+<H3>REGISTER NO: 212223240152</H3>  
+ 
+<H3>DATE: 30/10/2025</H3>  
 
-<H1 ALIGN =CENTER> Create IPAddressKind Enum and IPAddress Structure in Rust </H1>  
 
 ## AIM:  
 To create an enum IPAddressKind in Rust that represents IPv4 and IPv6 addresses, define a struct IPAddress with IPAddressKind as a member, and use it in a Rust application.  
@@ -40,12 +39,46 @@ STEP 4: In the `main` function:
 
 ## PROGRAM:  
 ```
+// Rust program to demonstrate Enum and Struct for IPAddress
 
-//Type Your Code
+enum IPAddressKind {
+    IPv4,
+    IPv6,
+}
 
+struct IPAddress {
+    kind: IPAddressKind,
+    address: String,
+}
+
+impl IPAddress {
+    fn display(&self) {
+        match self.kind {
+            IPAddressKind::IPv4 => println!("IPv4 Address: {}", self.address),
+            IPAddressKind::IPv6 => println!("IPv6 Address: {}", self.address),
+        }
+    }
+}
+
+fn main() {
+    let home = IPAddress {
+        kind: IPAddressKind::IPv4,
+        address: String::from("192.168.1.1"),
+    };
+
+    let loopback = IPAddress {
+        kind: IPAddressKind::IPv6,
+        address: String::from("::1"),
+    };
+
+    home.display();
+    loopback.display();
+}
 
 ```
 ## OUTPUT:
+<img width="1502" height="1031" alt="image" src="https://github.com/user-attachments/assets/1fc8c30e-4949-4917-ba60-995c85e0a810" />
 
 
 ## RESULT:
+Thus, the Rust program for creating an Enum IPAddressKind and a Struct IPAddress was successfully implemented and executed.
